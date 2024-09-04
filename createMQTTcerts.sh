@@ -317,9 +317,3 @@ select opt in $OPTIONSLIST; do
     fi
 done
 
-printf "${CYAN}Trying to add TwinCAT_XAR user to mosquitto password file...${NC}\n"
-mosquitto_passwd -b -c ${MOSQPATH}mqttuser.txt TwinCAT_XAR qUeriUo4812dsdaf
-printf "${CYAN}Trying to add TwinCAT_XAE user to mosquitto password file...${NC}\n"
-mosquitto_passwd -b ${MOSQPATH}mqttuser.txt TwinCAT_XAE Trweriuo5678dsXy
-
-
