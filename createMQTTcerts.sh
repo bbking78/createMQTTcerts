@@ -94,7 +94,7 @@ read COMPANY
 printf "${CYAN}Organizational Unit name (The name of your department within the organization):${NC} "
 read UNIT
 #echo $UNIT
-printf "${CYAN}Common Name: ${GREEN}${HOSTNAME}${CYAN} was found. It should be the FQDN. Enter something else if not satisfied:${NC} "
+printf "${CYAN}Common Name of your MQTT broker: ${GREEN}${HOSTNAME}${CYAN} was found. It should be the FQDN. Enter something else if not satisfied:${NC} "
 read CN
 #echo $CN
 if [ "$CN" == "$HOSTNAME" ];
@@ -255,11 +255,11 @@ cat <<EOF > ./Routes_XAR.xml
         <Mqtt>
             <Address Port="${PORT}">${HOSTNAME}</Address>
            <Topic>VirtualAmsNetwork1</Topic>
-            <User>TwinCAT_XAE</User>
+            <User>TwinCAT_XAR</User>
             <Tls>
                 <Ca>${TARGETPATH_CERT}CA.crt</Ca>
-                <Cert>${TARGETPATH_CERT}TwinCAT_XAE.crt</Cert>
-               <Key>${TARGETPATH_CERT}TwinCAT_XAE.key</Key>
+                <Cert>${TARGETPATH_CERT}TwinCAT_XAR.crt</Cert>
+               <Key>${TARGETPATH_CERT}TwinCAT_XAR.key</Key>
            </Tls>
        </Mqtt>
     </RemoteConnections>
@@ -268,7 +268,7 @@ EOF
  
 printf "${CYAN}Config files for XAR (runtime system) were created. Copy the files to the following locations:${NC}\n"
 printf "${CYAN}Routes_XAR.xml -> ${GREEN}on your target OS (${TARGETOS}) into the directory ${CYAN}${TARGETPATH_ROUTES} ${GREEN}. Create directory first, if missing.${NC}\n"
-printf "${CYAN}CA.crt, TwinCAT_XAR.crt and TwinCAT_XAE.key -> ${GREEN}on your target OS (${TARGETOS}) into the directory ${CYAN}${TARGETPATH_CERT} ${GREEN}. Create directory first, if missing.${NC}\n"
+printf "${CYAN}CA.crt, TwinCAT_XAR.crt and TwinCAT_XAR.key -> ${GREEN}on your target OS (${TARGETOS}) into the directory ${CYAN}${TARGETPATH_CERT} ${GREEN}. Create directory first, if missing.${NC}\n"
 
 
 cat <<EOF > ./Routes_XAE.xml
